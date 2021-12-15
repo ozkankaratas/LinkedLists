@@ -1,0 +1,166 @@
+namespace LinkedLists
+{
+    class Program
+    {
+        #region
+        //class Block
+        //{
+        //    public int data;   // data veri tutacak o yuzden public int
+        //    public Block prev; // prev ve next işaretçi olduğu için Block nesnesinden aldık
+        //    public Block next; 
+        //}
+        //static void Main(string[] args)
+        //{
+        //    Block head = null;  // main methodunun icinde head ve last , ilk ve son elemanı tutacak
+        //    Block last = null;
+
+        //    for (int i = 1; i <= 10; i++)   // for dongusu 10'a kadar olan sayilari yazdirmak icin..
+        //    {
+        //        Block yenieleman = new Block(); 
+        //        yenieleman.data = i;
+
+        //        if (head == null)   //eger ilk eleman boşsa(null) baş ve son artık yeni elemanı göstersin
+        //        {
+        //            head = yenieleman;
+        //            last = yenieleman;
+        //        }
+        //        else                //ilk eleman boş değil ise son elemanın sonrası(last.next) yeni eleman oldu
+        //        {
+        //            last.next = yenieleman;  
+        //            yenieleman.prev = last;  // yeni elemandan bir onceki elemanin son oldugunu gosterdi
+        //            last = yenieleman;     // ardindan yeni son eleman o eklenen olmus oldu . cift yonlu list tamamdir.
+        //        }
+        //    }
+
+
+
+        //    //sona eleman ekle
+
+        //    Block add = head;               // add ilk eleman olarak gosterildi
+        //    while (add.next != null)        // add elemaninin sonrasi(add.next) bos(null) olmadigi surece 
+        //    {
+        //        add = add.next;             // add elemani add elemanindan sonrasini(add.next) gosterdi
+        //    }
+        //    Block d = new Block();          // d adinda eleman olusturuldu ve '1000' degeri veri olarak(d.data) yazildi
+        //    d.data = 1000;            
+
+        //    add.next = d;                   // head'in gosterdigi add elemaninin sonrasi(add.next) d oldu.
+        //    d.prev = add;                   // d elemaninin bir gerisi de add oldu (cift yonlulugu bozmamasi icin)
+
+        //    Console.WriteLine();
+        //    Console.ReadKey();
+        //    //istedigimiz elemanı kaldırma
+
+        //    Block pop = head;
+        //    while (pop.next != null)  // pop elemaninin sonrasi(pop.next) bos degil ise ;
+        //    {
+        //        if (pop.data == 7)    // eger pop elemaninin degeri '7' ise; 
+        //        {
+        //            pop.prev.next = pop.next;  // pop'un oncekinin sonrasi == pop'un sonrasi
+        //            pop.next.prev = pop.prev;  // pop'un sonrakinin oncesi == pop'un oncesi  
+        //        }
+        //        pop = pop.next;   // boylece '7' degerini tutan eleman atlandi
+        //    }
+
+
+
+
+        //    //araya eleman ekleme
+
+        //    Block t = head;
+        //    while (t.next != null)  // t elemanindan sonrasi(t.next) bos degil ise ;
+        //    {
+        //        if (t.data == 3)    // eger t '3' ise ; Yani 3. eleman ise
+        //        {
+        //            Block ara = new Block();    // araya eklenecek eleman icin blok
+        //            ara.data = 777;             
+        //            ara.next = t.next;          
+        //            ara.prev = t;
+        //            t.next = ara;
+        //            t.next.prev = ara;
+
+        //        }
+        //        t = t.next;
+        //    }
+
+        //    Block temp = head;      // head ve last işaretçileri sürekli yer değiştirdiği için temp sabit işaretçi oluşturduk
+        //    while (temp != null)    // temp boş degil iken
+        //    {
+        //        Console.WriteLine(temp.data);   // temp degerini yaz (ilk eleman)
+        //        temp = temp.next;               // temp sonrakini isaret etsin ve sonraki yazilsin
+        //    }
+        //    Console.ReadKey();
+
+        //    /* SON DURUMDA :
+        //       7.eleman silindi
+        //       3.elemandan sonra '777' eklendi
+        //       son elemandan sonra '1000' eklendi
+        //    */
+        //}
+        #endregion
+        class Node
+        {
+            public int data;
+            public Node next;
+            public Node prev;
+
+        }
+        static void Main(string[] args)
+        {
+            Node head = null;
+            Node last = null;
+            Node temp = head;
+
+
+            //for (int i = 1; i <= 7; i++)
+            //{
+            //    Node yenieleman = new Node();
+            //    //Console.Write($"{i}.elemani giriniz : ");
+            //    //int x = Convert.ToInt32(Console.ReadLine());
+            //    yenieleman.data = i;
+
+                //    if (head == null)
+                //    {
+                //        head = yenieleman;
+                //        last = yenieleman;
+                //    }
+                //    else
+                //    {
+                //        last.next = yenieleman;
+                //        yenieleman.prev = last;
+                //        last = yenieleman;
+                //    }
+                //}
+                //Console.WriteLine(head.next.next.next.prev.data);
+                //Console.ReadKey();
+
+                for (int i = 1; i <= 7; i++)
+            {
+
+                Node yenieleman = new Node();
+                yenieleman.data = i;
+                if (head == null)
+                {
+                    head = yenieleman;
+                    last = yenieleman;
+                }
+                else
+                {
+                    last.next = yenieleman;
+                    last = yenieleman;
+                }
+                
+
+            }
+            while (head != null)
+            {
+                Console.WriteLine(head.data);
+                head = head.next;
+
+            }
+            Console.ReadLine();
+
+        }
+    }
+}
+
